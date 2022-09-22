@@ -40,12 +40,12 @@
     /// <param name="board">The board</param>
     static void DisplayBoard(List<string> board)
     {
-        Console.WriteLine("|", board);
-        Console.WriteLine("-+-+-");
-        // Console.WriteLine("|", board);
-        // Console.WriteLine("-+-+-");
-        // Console.WriteLine("|", board);
-
+        for (int i = 1; i <= 9; i++)
+        {
+            Console.WriteLine("|", board);
+            Console.WriteLine("-+-+-");
+            }
+        
     }
 
     /// <summary>
