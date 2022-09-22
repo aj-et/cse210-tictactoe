@@ -40,11 +40,11 @@
     /// <param name="board">The board</param>
     static void DisplayBoard(List<string> board)
     {
-        for (int i = 1; i <= 9; i++)
-        {
-            Console.WriteLine("|", board);
-            Console.WriteLine("-+-+-");
-            }
+        Console.WriteLine($"{board[0]} | {board[1]} | {board[2]}");
+        Console.WriteLine("-+-+-");
+        Console.WriteLine($"{board[3]} | {board[4]} | {board[5]}");
+        Console.WriteLine("-+-+-");
+        Console.WriteLine($"{board[6]} | {board[7]} | {board[8]}");
         
     }
 
@@ -55,7 +55,7 @@
     /// <returns>True if the game is over</returns>
     static bool IsGameOver(List<string> board)
     {
-        return false;
+        return IsWinner(board, "x") || IsWinner(board, "o") || IsTie(board);  
     }
 
     /// <summary>Determines if the provided player has a tic tac toe.</summary>
