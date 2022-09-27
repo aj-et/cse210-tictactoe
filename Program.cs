@@ -45,7 +45,6 @@
         Console.WriteLine($"{board[3]} | {board[4]} | {board[5]}");
         Console.WriteLine("-+-+-");
         Console.WriteLine($"{board[6]} | {board[7]} | {board[8]}");
-        
     }
 
     /// <summary>
@@ -55,7 +54,7 @@
     /// <returns>True if the game is over</returns>
     static bool IsGameOver(List<string> board)
     {
-        return IsWinner(board, "x") || IsWinner(board, "o") || IsTie(board);  
+        return IsWinner(board, "x") || IsWinner(board, "o") || IsTie(board);
     }
 
     /// <summary>Determines if the provided player has a tic tac toe.</summary>
@@ -64,6 +63,27 @@
     /// <returns></returns>
     static bool IsWinner(List<string> board, string player)
     {
+        // This is the horizontal
+        if ((board[0] == player && board[1] == player && board[2] == player)
+        || (board[3] == player && board[4] == player && board[5] == player)
+        || (board[6] == player && board[7] == player && board[8] == player)) {
+            return true;
+        }
+
+        //This is the vertical
+        if ((board[0] == player && board[3] == player && board[6] == player)
+        || (board[1] == player && board[4] == player && board[7] == player)
+        || (board[2] == player && board[5] == player && board[8] == player)) {
+            return true;
+        }
+
+        //This is diagonal
+        if ((board[0] == player && board[4] == player && board[8] == player)
+        || (board[2] == player && board[4] == player && board[6] == player)) {
+            return true;
+        }
+        
+
         return false;
     }
 
@@ -72,7 +92,14 @@
     /// <returns>True if the board is full.</returns>
     static bool IsTie(List<string> board)
     {
-        return false;
+        foreach (string value in board)
+        {
+            if (char.IsDigit(value[0]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>Cycles through the players (from x to o and o to x)</summary>
